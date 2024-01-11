@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="demo"></p>
+<br/>
+<button type="button">click</button>
+
+<!--<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $.ajax({
+                url:"dataEx.jsp",
+                type:"get",
+                datatype:"json",
+                success:function( data ){
+                    // alert('success');
+                    // alert(data.trim());
+                    let json = JSON.parse(data.trim());
+                    //	alert(json);
+
+                    $("#demo").append(json.name + " ");
+                    $("#demo").append(json.age + " ");
+                    $("#demo").append(json.phone + " ");
+                },
+                error:function(){
+                    alert('error');
+                }
+            })
+
+        });
+
+    });
+</script>-->
+
+<script>
+    $(document).ready(function () {
+
+        $('button').click(function () {
+            $.ajax({
+                url: "dataEx.jsp",
+                type:"get",
+                datatype : "json",
+                success: function(data){
+
+                    // alert(data);
+
+                    // let json = JSON.parse(data);
+                    // alert(json);
+
+                    let json = JSON.parse(data.trim());
+                    alert(json);
+
+                    $("#demo").append(json.name + " ");
+                    $("#demo").append(json.age + " ");
+                    $("#demo").append(json.phone + " ");
+
+                },
+                error: function(){
+                    // alert("error");
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

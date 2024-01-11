@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p id="demo"></p>
+<br/><br/>
+
+<button type="button">클릭</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('button').click(function () {
+            $.ajax({
+                ////////////////////////////////////////////////////////////////////// send
+                "url" : "data.jsp",
+                "type" : "GET",     //doGet
+                // "data" : "name=성춘향&age=16",
+                "data" : { "name" : "성춘향" , "age" : 16 },
+                //////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////// resive
+                success:function (data, status, xhr) {
+                    // alert("통신성공");
+                    // alert(data);
+                    $('#demo').append("data = " + data + "<br/>")
+                    $('#demo').append("status = " + status + "<br/>")
+                    $('#demo').append("xhr = " + xhr + "<br/>")
+                },
+                error:function (xhr, status, error){
+                    // alert("error");
+                },
+                complete:function (xhr, status) {
+                    // alert("통신종료");
+                }
+            });
+        });
+    });
+
+</script>
+
+</body>
+</html>

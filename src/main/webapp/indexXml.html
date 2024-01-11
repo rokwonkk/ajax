@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="demo"></p>
+<br/>
+
+<button type="button">click</button>
+
+<script>
+let target = [];
+let link = [];
+let aname = [];
+
+$(document).ready(function () {
+    $('button').on('click', function () {
+        // alert("클릭하여따");
+        $.ajax({
+            url : "data.xml",
+            dataType : "xml",
+            success: function (data) {
+                // alert("쓲쏐쓰");
+                // alert(data);
+
+                // getElementsByTagName("") -> root tag
+                let xml = $(data).find("xmldata") // -> root tag
+                let nodelen = xml.find("news").length;
+                // alert(nodelen);
+
+                // 데이터 산출
+                for (let i = 0; i < nodelen; i++) {
+                    target[i] = xml.find("news").eq(i).find("target").text();
+                    link[i] = xml.find("news").eq(i).find("link").text();
+                    aname[i] = xml.find("news").eq(i).find("aname").text();
+                }
+
+                // 데이터 시각화
+                for (let i = 0; i < nodelen; i++) {
+                    $('#demo').append(target[i] + " " + link[i] + " " + aname[i] + "<br/>");
+                }
+            },
+            error: function () {
+                alert("애러남");
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

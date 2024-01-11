@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="demo"></p>
+<br/>
+
+<button type="button">click</button>
+
+<!--
+<script>
+
+    $("button").click(function () {
+
+        $.ajax({
+            url:"./hello",
+            type:"get",
+            data:{ id:"abc", pw:"123" },
+            success:function(data){
+                // alert('success');
+                // alert(data);
+                // alert(JSON.stringify(data));
+
+                // 1.String
+                //	$("#demo").append(data.str);
+
+                // 2.list
+                /*	let arrlist = data.list;
+                    $.each(arrlist, function (i, item) {
+                        $("#demo").append(item.id + " ");
+                        $("#demo").append(item.name + " ");
+                        $("#demo").append(item.address + "<br/>");
+                    });*/
+
+                // 3.map
+                let str = data.map.str;
+                // alert(str);
+
+                let list = data.map.list;
+                $.each(list, function (i, item) {
+                    $("#demo").append(item.id + " ");
+                    $("#demo").append(item.name + " ");
+                    $("#demo").append(item.address + "<br/>");
+                });
+
+            },
+            error:function(){
+                alert('error');
+            }
+        });
+
+    });
+
+</script>
+-->
+
+<script>
+    $('button').click(function () {
+        $.ajax({
+            url: "./hello",
+            type: "get",
+            data: {id: "abc", pw: "123"},
+            success: function (data) {
+                // alert("success");
+                alert(JSON.stringify(data));
+
+                //1.String
+                $("#demo").append(data.str);
+
+                // 2.list
+                /*let list = data.list;
+
+                $.each(list, function (i, item) {
+                    $("#demo").append(item.id + " ");
+                    $("#demo").append(item.name + " ");
+                    $("#demo").append(item.address + "<br/>");
+                });*/
+
+                // 3.map
+/*                let str = data.map.str;
+                alert(str);
+
+                let list = data.map.list;
+                $.each(list, function (i, item) {
+                    $("#demo").append(item.id + " ");
+                    $("#demo").append(item.name + " ");
+                    $("#demo").append(item.address + "<br/>");
+                });*/
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

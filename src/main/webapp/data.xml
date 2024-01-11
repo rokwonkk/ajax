@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmldata>
+	<news>
+		<target>naver</target>
+		<link>http://www.naver.com</link>
+		<aname>네이버</aname>
+	</news>
+	<news>
+		<target>daum</target>
+		<link>http://www.daum.net</link>
+		<aname>다움</aname>
+	</news>
+	<news>
+		<target>google</target>
+		<link>http://www.google.co.kr</link>
+		<aname>구글</aname>
+	</news>
+</xmldata>
